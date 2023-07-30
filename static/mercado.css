@@ -1,0 +1,404 @@
+@font-face {
+    font-family: Assinatura;
+    src: url(Bellandha.ttf);
+}
+
+html,
+body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url('https://cdn.discordapp.com/attachments/1113723459336413234/1117478406116872223/fundo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    animation: soccerBackground 10s linear infinite;
+    font-family: 'Russo One', sans-serif;
+
+}
+
+@keyframes soccerBackground {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 0 45%;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* Alinhar as janelas ao topo */
+    gap: 20px;
+    row-gap: 40px;
+    margin: 0px 50px 100px 50px;
+}
+
+.scroll-arrow {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+h1 {
+    color: #000;
+    font-size: 32px;
+    text-align: center;
+    margin-top: 0;
+}
+
+
+.main{
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: row;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 65% 65% 0 0 / 30%;
+    margin-top: auto;
+}
+
+.logoRodape{
+    /* background-color: #000000; */
+    width: 50px;
+    height: 50px;
+    filter: invert();
+
+}
+
+.divRodape{
+    width: 33%;
+    background: rgba(162, 28, 58, 0);
+    font-size: 1.0rem;
+}
+
+
+/*-----------------------------------------BOTÃO DE COMPRAR ----------------------------------------*/
+.container button {
+    margin-top: 5px;
+    background-color: #fff;
+    border: 0 solid #E5E7EB;
+    box-sizing: border-box;
+    color: #000000;
+    display: flex;
+    font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1.75rem;
+    padding: .75rem 1.65rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none #fff solid;
+    text-decoration-thickness: auto;
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    cursor: pointer;
+    transform: rotate(-2deg);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.container button:focus {
+    outline: 0;
+}
+
+.container button:after {
+    content: '';
+    position: absolute;
+    border: 1px solid #000000;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+
+.container button:hover:after {
+    bottom: 2px;
+    left: 2px;
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------Form e FIltros----------------------------------------*/
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+.filtro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    color: #000;
+}
+
+/* Botões Form */
+.btnForm,
+select{
+    background-color: #888;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 20px;
+    width: 120px;
+    margin: 0 2px 0 2px;
+    outline: none;
+    overflow: hidden;
+    /* padding: 5px 10px 4px; */
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+}
+
+.btnForm:hover {
+    opacity: .75;
+}
+
+.btnForm:disabled {
+    background-color: #050;
+}
+#btnAplicarFaixaValor{
+    color: #fff;
+    background-color: #000;
+}
+#btnResetarFaixaValor{
+    color: #fff;
+    background-color: #f00;
+}
+
+select{
+    background-color: #fff;
+    color: #000;
+}
+
+.inputNumber{
+    background-color: #fff;
+    border-radius: 4px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #000;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 18px;
+    width: 78px;
+    margin: 0 2px 0 2px;
+    outline: none;
+    overflow: hidden;
+    display: inline-block;
+    border: 1px solid #000;
+}
+
+.header, #retornoBusca {
+    /* background: rgba(162, 28, 58, 0); */
+    background: rgba(80, 80, 80, 0.0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 0 0 65% 65% / 30%;
+   
+}
+
+#jogadorDisponiveis{
+    width: auto;
+}
+
+/*-------------------------------------------------------------------------------------*/
+
+/*-----------------------------------------CARD----------------------------------------*/
+.card {
+    width: 200px;
+    height: 410px;
+    background: linear-gradient(0deg, #3100BB 4%, #9D00AD 100%);
+    /* box-shadow: 5px 5px 10px 1px #000; */
+    /*backdrop-filter: blur(11px);                       ----------------------Removi para otmizar.
+    -webkit-backdrop-filter: blur(11px);;                ----------------------Removi para otmizar.
+    /* border-radius: 10px; */
+    border: 2px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 7px 20px 5px #00000088;
+    border-radius: 0.7rem;
+    transition: 0.5s all;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Espaçamento interno entre os elementos */
+}
+
+.card img {
+    width: 100%;
+    /* Preencher a largura da janela */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card h3 {
+    margin-top: 10px;
+}
+
+.card p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.card hr {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #88888855;
+    /* margin: 10px 0 10px 0; */
+}
+
+/* .card ::before {                           ----------------------Removi para otmizar.
+    position: fixed;
+    content: "";
+    box-shadow: 0 0 100px 40px #ffffff08;
+    top: -10%;
+    left: -100%;
+    transform: rotate(-45deg);
+    transition: 0.7s all;
+}                                            ----------------------Removi para otmizar.*/   
+
+.card:hover {
+    /* border: 2px solid #ffffff44; */
+    box-shadow: 0 7px 50px 10px #000000aa;
+    filter: brightness(1.1);
+}
+
+.card:hover ::before {
+    filter: brightness(0.5);
+    top: -100%;
+    left: 200%;
+}
+/*-------------------------------------------------------------------------------------*/
+
+
+/* Classe UpperCase */
+.upper {
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+}
+
+/* Assinatura das Cartas */
+.assinatura {
+    text-transform: capitalize;
+    font-size: 48px;
+    font-family: Assinatura;
+}
+
+/* Mensagem Quando não retorna nada dos filtros */
+/* #retornoBusca {
+    color: #fff;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 24px;
+    display: none;
+} */
+
+table {
+    text-align: center;
+}
+
+
+/*  Popup de Alerta quando clica em comprar */
+.alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    animation: alertAnimation 0.3s;
+}
+
+@keyframes alertAnimation {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}

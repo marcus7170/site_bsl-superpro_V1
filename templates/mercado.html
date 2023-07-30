@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mercado</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mercado.css') }}">
+    <link rel="icon" type="image/png"
+        href="https://media.discordapp.net/attachments/981325072688119828/1068645678244429965/LOGO_1.png?width=676&height=676">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+</head>
+
+<body onload="filtro();ordenarPorOverall()">
+    <div class="main">
+        <div class="header">
+            <h1 id="Mercado">BSL - Super Pro</h1>
+            <h1 id="Mercado">Mercado</h1>
+            
+            <div class="filtro">
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <label for="filtro-overall">Filtrar por Faixa de Preço:</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <form onsubmit="event.preventDefault();filtro();">
+                                <input type="number" class="inputNumber" min="0" max="5000000" data-maxlength="7" oninput="this.value=this.value.slice(0,this.dataset.maxlength)" name="filtroMenorPreco" id="filtroMenorPreco" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 13)"/>
+                                até
+                                <input type="number" class="inputNumber" min="0" max="5000000" data-maxlength="7" oninput="this.value=this.value.slice(0,this.dataset.maxlength)" name="filtroMaiorPreco" id="filtroMaiorPreco" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 13)"/>
+                        
+                                <button id='btnAplicarFaixaValor' class="btnForm" type="submit">Aplicar</button>
+                                <button id='btnResetarFaixaValor' class="btnForm" onclick="resetarFaixaPreco();filtro()">Resetar</button>
+                            </form>
+                        </td>
+                    </tr>
+                  
+                    <tr>
+                        <td>
+                            <label for="posicao">Filtrar por Posição:</label>
+                        </td>
+                        <td>
+                            <select id="posicao" name="posicao" onchange="filtro()">
+                                <option value="">Todas</option>
+                                <option value="GK">GK</option>
+                                <option value="ZAG">ZAG</option>
+                                <option value="VOL">VOL</option>
+                                <option value="ME">ME</option>
+                                <option value="MD">MD</option>
+                                <option value="MEI">MEI</option>
+                                <option value="ATA">ATA</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="filtro-tipo">Filtrar por Tipo:</label>
+                        </td>
+                        <td>
+                            <select id="filtro-tipo" onchange="filtro()">
+                                <option value="">Todos</option>
+                                <option value="-hero">Hero</option>
+                                <option value="-rule">RuleBreaks</option>
+                                <option value="-beta">Beta</option>
+                                <option value="-mom">Moments</option>
+                                <option value="icon">Icon</option>
+                                <option value="-tots">Tots</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="filtro-overall">Filtrar por Overall:</label>
+                        </td>
+                        <td>
+                            <select id="filtro-overall" onchange="filtro()">
+                                <option value="">Todos</option>
+                                <option value="60-74">60 à 74</option>
+                                <option value="75-79">75 à 79</option>
+                                <option value="80-84">80 à 84</option>
+                                <option value="85-89">85 à 89</option>
+                                <option value="90+">90+</option>
+                            </select>
+                        </td>
+                    </tr>
+                   
+                </table>
+                <br />
+                <div>
+                    <button id='ordenarValor' class="btnForm" onclick="ordenarPorValor()">Ordenar por Maior Valor</button>
+                    <button id='ordenarOverall' class="btnForm" onclick="ordenarPorOverall()">Ordenar por Maior OVR</button>
+                </div>
+                <h2 id="jogadorDisponiveis">Jogador(es) Disponível(eis)</h2>
+            </div>
+        </div>
+
+
+        
+
+
+        {% if mercado %}
+        <div class="container">
+
+            {% for jogador in mercado %}
+
+            <div class="card">
+
+                <img loading="lazy" src="{{ jogador[5] }}"
+                    onerror="this.src='https://cdn.discordapp.com/attachments/1083866240122093595/1113560709230501990/Jogador_Sem_Carta.png';"
+                    alt="Imagem do Jogador" width="400" height="200">
+                <span class="assinatura">{{ jogador[1] }}</span>
+                <hr />
+                <h3 class="upper">{{ jogador[1] }}</h3>
+                <p>Valor: R$ {{ jogador[2] }}</p>
+                <p>Overall: {{ jogador[3] }}</p>
+                <p>Posição: {{ jogador[4] }}</p>
+                <form action="/comprar" method="post">
+                    <input type="hidden" name="jogador_id" value="{{ jogador[4] }}">
+                    <button class="btnComprar" type="button"
+                        onclick="copiarJogador('{{ jogador[4] }}', '{{ jogador[2] }}', '{{ jogador[1] }}')">Comprar</button>
+                </form>
+
+            </div>
+            {% endfor %}
+            <h2 id="retornoBusca">A busca não retornou nenhum jogador com esses critérios!</h2>
+        </div>
+        {% else %}
+        <p>Não há jogadores disponíveis no mercado para a posição escolhida.</p>
+        {% endif %}
+
+        <footer class="footer">
+            <div class="divRodape">
+                <img class='logoRodape' src="../static/LogoBranca.png">
+            </div>
+            <div class="divRodape">
+                Criado e Desenvolvido por Marcus7170
+                <br />
+                Front-End por LZCT
+            </div>
+            <div class="divRodape">
+                <img class='logoRodape' src="../static/LogoBranca.png">
+            </div>
+          
+        </footer>
+    </div>
+
+
+    <script src="{{url_for('static', filename='mercado.js')}}"></script>
+</body>
+
+</html>

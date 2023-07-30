@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu.css') }}">
+    <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/981325072688119828/1068645678244429965/LOGO_1.png?width=676&height=676">
+</head>
+<body>
+    <h1>Menu</h1>
+    <form action="/market">
+        <button type="submit">Ir para o Mercado</button>
+    </form>
+    <form action="/lineup">
+        <button type="submit">Ir para a Escalação</button>
+    </form>
+</body>
+<footer class="footer">
+    <div class="divRodape">
+        <img class='logoRodape' src="../static/LogoBranca.png">
+    </div>
+    <div class="divRodape">
+        Criado e Desenvolvido por Marcus7170
+        <br />
+        Front-End por LZCT
+    </div>
+    <div class="divRodape">
+        <img class='logoRodape' src="../static/LogoBranca.png">
+    </div>
+  
+</footer>
+</html>

@@ -1,0 +1,64 @@
+body {
+    background-color: #1565C0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('https://cdn.discordapp.com/attachments/1113723459336413234/1117478406116872223/fundo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: soccerBackground 20s linear infinite;
+}
+
+@keyframes soccerBackground {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 0 100%;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+
+.login-container {
+    width: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+}
+
+h1 {
+    text-align: center;
+    color: #1565C0;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #1976D2;
+    color: white;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0D47A1;
+}
